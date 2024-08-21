@@ -51,3 +51,5 @@ app.put("/completed", async (req, res) => {
 
   res.json({ msg: "Todo updated successfully" });
 });
+
+app.listen(3000);
