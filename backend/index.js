@@ -2,8 +2,10 @@ const express = require("express");
 const { createTodo } = require("./types");
 const { todo } = require("./db");
 const app = express();
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/todo", async (req, res) => {
   const createPayload = req.body;
@@ -52,4 +54,6 @@ app.put("/completed", async (req, res) => {
   res.json({ msg: "Todo updated successfully" });
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});
